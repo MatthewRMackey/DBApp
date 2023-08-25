@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <title>
+        Edit Inventory
+    </title>
+    <body style="background-color:#a3882f;">
+        <div class="center">
+        <h1 class="h1-font" style="font-size: 10vw;">{{actionName}}</h1>
+        <h2 class="h2-table">{{item}}</h2>
+        <div class="left">
+            <form name="input-form" style="margin-bottom: 5vw;" action="/{{actionRoute}}/{{serial}}" method="POST">
+                <p>
+                    <label for="snumber" class="label-font">Date</label>
+                    <input class="textBox" type="text" name="date" placeholder="MM/DD/YY" required>
+                </p>
+                <p>
+                    <label for="snumber" class="label-font">Number of Items</label>
+                    <input class="textBox" type="number" name="value" placeholder=000 required>
+                </p>
+                <p><input class="submitButton" type="submit" value="Submit Item"></p>
+            </form>
+        </div>
+        </div>
+    </body>
+</html>

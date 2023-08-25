@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../static/javascript/inventory.js"></script>
+    </head>
+    <title>
+        {{name}} Details
+    </title>
+    <body style="background-color:#a3882f;">
+        
+        <div class="center">
+            <h1 class="h1-details">{{name}}</h1>
+        
+            <p><img src="../static/img/{{name.replace(' ', '_')}}.png" alt="{{name}} QR"></p>
+        
+        
+        
+            <table class="center">
+                <h2 class="h2-table">Inventory Statistics</h2>
+                <tr>
+                    {% for title in data[0]%}
+                        <th class="table-font">{{title}}</th>
+                    {% endfor %}
+                </tr>
+                {% for dat in data %}
+                <tr>
+                    {% for key in dat%}
+                        <td class="table-font">{{dat[key]}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="center">
+
+            <p>
+            <a id="newInv" class="statButton">New Inventory</a>
+            <a id="newSale" class="statButton">New Sale</a>
+            <a id="newProd" class="statButton">New Production</a>
+            </p>
+
+            <script>
+                //Get the last segment of current url
+                current_item = window.location.href.slice(window.location.href.lastIndexOf(":")+16,window.location.href.length);
+                document.getElementById("newInv").href = "{{url_for('edit_inv', actionRoute='add_inv')}}";
+                document.getElementById("newSale").href = "{{url_for('edit_inv', actionRoute='add_sale')}}";
+                document.getElementById("newProd").href = "{{url_for('edit_inv', actionRoute='add_prod')}}";
+            </script>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <title>
+        Inventory Index
+    </title>
+    <body style="background-color:#a3882f;">
+        <div class="center">
+        <h1 class="h1-font">Items in Inventory</h1>
+        
+        <p><img src="../static/img/Home.png" alt="Home QR"></p>
+        
+        <div class="left">
+            <list>
+                {% for item in items %}
+                    <li class="list-font">
+                        <a href="/item_page/{{item[0]}}" name="{{item[0]}}">{{item[0]}} - {{item[1]}}</a>
+                    </li>
+                {% endfor %}
+            </list>
+        </div>
+        </div>
+        <div class="center" style="padding-bottom: 2vw;">
+            <p><a href="/add_items" class="add-item-button buttonClass">Add Item</a></p>
+        </div>
+        </div>
+    </body>
+</html>
